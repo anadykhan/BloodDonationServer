@@ -40,6 +40,12 @@ async function run() {
             res.send(result)
         })
 
+        app.get('/requests', async(req, res) => {
+            const cursor = requestsCollection.find()
+            const result = await cursor.toArray()
+            res.send(result)
+        })
+
         app.post('/requests', async(req, res) => {
             const request = req.body
             console.log(request)
